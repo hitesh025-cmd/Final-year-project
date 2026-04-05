@@ -3,7 +3,7 @@ services:
     name: blood-bank-system
     runtime: node
     plan: free
-    buildCommand: npm install && npm run build
+    buildCommand: npm install
     startCommand: node backend/index.js
     envVars:
       - key: NODE_VERSION
@@ -12,11 +12,8 @@ services:
         fromDatabase:
           name: blood-bank-db
           property: connectionString
-      - key: PORT
-        value: 3001
 
 databases:
   - name: blood-bank-db
     plan: free
     databaseName: bloodbank
-    user: postgres
